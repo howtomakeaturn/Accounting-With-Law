@@ -1,0 +1,21 @@
+application: accountingwithlaw
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /pics
+  static_dir: pics  
+  
+  
+- url: /admin.*
+  script: admin.py  
+  login: admin  
+  
+- url: .*
+  script: main.py
+  

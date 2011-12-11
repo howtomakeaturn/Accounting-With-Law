@@ -1,0 +1,10 @@
+﻿{% extends "base.html" %}
+{% block content %}
+  {% for article in articles %}
+    <div class='article'>
+      <div class='number_of_answers'>{{ article.answers.count }}&nbsp &nbsp</div>
+      <div class='article_title'><a href='/article/{{ article.number }}'>{{ article.title }}</a></div><div class='article_author'>{{ article.author }}</div><div class='article_created'>{{ article.created|twtz_m_d }} {{ article.created|twtz|time:"G:i" }}</div> 
+      <div class='common_break_line'><hr /></div>
+    </div>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,48 @@
+﻿{% extends "base.html" %}
+{% block script %}
+  <script>
+    function edit_article(key){
+      location = '/admin/edit_article?key=' + key;
+    }//end function
+  
+    function edit_answer(key){
+      location = '/admin/edit_answer?key=' + key;
+    }//end function
+  
+      
+     // function transform_hyper_link(target){//this function is buggy. Error happens if url repeats. Try so solve it!
+     //   var content = target.html();
+     //   var pattern = /(http|https)\:\/\/\S*/g
+     //   var url_list = content.match(pattern)
+     //   for(var i in url_list){
+     //     var new_string = "<a target='_blank' href='" + url_list[i] + "'>" + url_list[i] + "</a>"
+     //     content = content.replace(url_list[i], new_string)        
+     //   }//end for
+     //   target.html(content)      
+     // }//end transform_hyper_link
+      
+      
+      
+
+      
+  </script>
+{% endblock %}
+     
+{% block content %}
+    <div class='edit_button'><input type='button' value='編輯' onclick='edit_article("{{ article.key }}");' /></div>
+    <div id='title'>{{ article.title }}</div>
+    <div id='content'>{{ article.content }}</div>
+    <div class='article_author'>{{ article.author }}</div><div class='article_created'>{{ article.created.date.month }}/{{ article.created.date.day }}</div>
+    <div id='number_of_answers'>{{ article.answers.count }}個答覆</div>
+    
+    <div class='bottom_break_line'><hr /></div>
+    
+    {% for answer in article.sorted_and_adjusted_answers %}
+      <div class='edit_button'><input type='button' value='編輯' onclick='edit_answer("{{ answer.key }}");' /></div>
+      <div id='content'>{{ answer.content }}</div>
+      <div class='article_author'>{{ answer.author }}</div><div class='article_created'>{{ answer.created.date.month }}/{{ answer.created.date.day }}</div>
+      <div class='bottom_break_line'><hr /></div>
+    {% endfor %}
+
+    
+  {% endblock %}  

@@ -1,0 +1,19 @@
+﻿{% extends "base.html" %}
+{% block script %}
+  <script>
+    function submit(){
+      var form = document.getElementById('post_form')
+      form.submit();
+    }
+  </script>
+{% endblock %}
+{% block content %}
+  <form id='post_form' action='/admin/edit_answer' method='post'>
+    <input type='hidden' name='key' value='{{ answer.key }}' />
+    <div id='new_content'><textarea name='content'>{{ answer.content }}</textarea></div>
+    <div id='author_label'>暱稱</div>
+    <div id='author'><input type='text' name='author' value='{{ answer.author }}' /></div>
+    <br />
+    <span id='submit' onclick="submit();">修改完成</span>
+  </form>
+{% endblock %}

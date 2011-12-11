@@ -1,0 +1,28 @@
+﻿{% extends "base.html" %}
+{% block script %}
+<script>
+function delete_article(key) {
+
+  var form = document.createElement("form");
+  form.setAttribute("method", "post");
+  form.setAttribute("action", '/admin/delete_article');
+
+  var hiddenField = document.createElement("input");
+  hiddenField.setAttribute("type", "hidden");
+  hiddenField.setAttribute("name", "key");
+  hiddenField.setAttribute("value", key);
+
+  form.appendChild(hiddenField);
+
+  document.body.appendChild(form);
+  form.submit();
+}
+</script>
+{% endblock %}
+
+{% block content %}
+    {% for article in articles %}
+      <a href='/admin/read_article?key={{ article.key }}'>{{ article.title }}</a> {{ article.author }}{{ article.created.date.month }}/{{ article.created.date.day }}
+      <input type='button' value='刪除' onclick="delete_article('{{ article.key }}');" /><br />
+    {% endfor %}
+{% endblock %}

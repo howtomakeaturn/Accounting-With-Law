@@ -1,0 +1,175 @@
+/* base.html */
+
+#notice a{
+  font-size: 20px;
+  margin-top: 0px;
+  position: fixed;
+  height: 25px;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+}
+#notice a:hover{
+  background-color: red;
+}
+
+.edit_button{
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit_button input{
+  font-size: 35px;
+  width: 150px;
+}
+
+#main{
+  clear: both;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+#logo a{
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 30px;
+  text-decoration: none;
+}
+#logo a:hover{
+  background-color: red;
+}
+#description{
+  color: black;
+  padding: 15px;
+  font-weight: bold;
+}
+#new_post a{
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  float:right;
+}
+#new_post a:hover{
+  background-color: orange;
+}
+.top_break_line hr{
+  clear: both;
+  color: black;
+}
+#footer{
+  padding: 10px;
+  color: grey;
+}
+/* end base.html */
+/* index.html */
+.article{
+  padding: 10px;
+}
+.number_of_answers{
+  font-weight: bold;
+  float: left;
+  color: red;
+}
+.article_title a{
+  color: DodgerBlue;
+  text-decoration: none;
+  font-weight: bold;
+}
+.article_title a:hover{
+  text-decoration: underline;
+}
+.article_author{
+  color: DodgerBlue;
+  float: right;
+  padding: 10px;
+}
+.article_created{
+  color: grey;
+  float: right;
+  padding: 10px;
+  font-weight: bold;
+}
+.common_break_line hr{
+  clear: both;
+  color: lightgrey;
+}
+/* end index.html */
+/* read_article.html */
+#title{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+#content{
+  padding: 20px;
+
+}
+#content a{
+  color: DodgerBlue;
+  text-decoration: none;
+}
+#content a:hover{
+  text-decoration: underline;
+}
+
+/* article_author is in index.html */
+/* article_created is in index.html */
+
+#number_of_answers{
+  font-weight: bold;
+  clear: both;
+  padding: 5px;
+}
+.bottom_break_line hr{
+  clear: both;
+  color: lightgrey;
+}
+/* end read_article.html */
+/* add_article.html */
+#title_lable{
+  padding: 10px;
+  font-weight: bold;
+}
+#title input{
+  width: 600px;
+}
+#new_content{
+  padding: 10px;
+}
+#new_content textarea{
+  width: 700px;
+  height: 350px;
+}
+#author_label{
+  padding: 5px;
+  font-weight: bold;
+  float: left;
+}
+#author{
+  padding: 5px;
+}
+#author input{
+  width: 200px;
+}
+#submit{
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+}
+#submit:hover{
+  background-color: orange;
+  cursor: pointer;
+}
+/* end add_article.html */

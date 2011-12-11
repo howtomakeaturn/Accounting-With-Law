@@ -1,0 +1,52 @@
+﻿{% extends "base.html" %}
+{% block script %}
+    <script>
+      function submit(){//this function is necessary to avoid using ugly button the browser provides
+        var form = document.getElementById('post_form')
+        form.submit();
+      }//end submit
+      
+      
+     // function transform_hyper_link(target){//this function is buggy. Error happens if url repeats. Try so solve it!
+     //   var content = target.html();
+     //   var pattern = /(http|https)\:\/\/\S*/g
+     //   var url_list = content.match(pattern)
+     //   for(var i in url_list){
+     //     var new_string = "<a target='_blank' href='" + url_list[i] + "'>" + url_list[i] + "</a>"
+     //     content = content.replace(url_list[i], new_string)        
+     //   }//end for
+     //   target.html(content)      
+     // }//end transform_hyper_link
+      
+      $(document).ready(function() {
+        //transform_hyper_link($("#content"));
+      });//end ready
+     </script>
+{% endblock %}
+     
+{% block content %}
+    <div id='title'>{{ article.title }}</div>
+    <div id='content'>{{ article.content }}</div>
+    <div class='article_author'>{{ article.author }}</div><div class='article_created'>{{ article.created|twtz_m_d }} {{ article.created|twtz|time:"G:i" }}</div>
+    <div id='number_of_answers'>{{ article.answers.count }}個答覆</div>
+    
+    <div class='bottom_break_line'><hr /></div>
+    
+    {% for answer in article.sorted_and_adjusted_answers %}
+        <div id='content'>{{ answer.content }}</div>
+    <div class='article_author'>{{ answer.author }}</div><div class='article_created'>{{ answer.created|twtz_m_d }} {{ answer.created|twtz|time:"G:i" }}</div>
+    <div class='bottom_break_line'><hr /></div>
+
+    {% endfor %}
+    
+    <form id='post_form' action='/add_answer' method='post'>
+      <span id='title_lable'>您的答覆</span>
+      <div id='new_content'><textarea name='content'></textarea></div>
+      <div id='author_label'>暱稱</div>
+      <div id='author'><input type='text' name='author' /></div>
+      <br />
+      <input type='hidden' name='key' value='{{ article.key }}' />
+      <span id='submit' onclick="submit();">送出答覆</span>
+    </form>
+    
+  {% endblock %}  

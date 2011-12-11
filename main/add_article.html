@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% block script %}
+  <script>
+    function submit(){
+      var form = document.getElementById('post_form')
+      form.submit();
+    }
+  </script>
+{% endblock %}
+{% block content %}
+  <form id='post_form' action='/add_article' method='post'>
+    <span id='title_lable'>標題</span><select name='category'>
+      <option value='分享'>分享</option>
+      <option value='問題'>問題</option>
+      <option value='其他'>其他</option>
+    </select>      
+    <span id='title'><input type='text' name='title' /></span><br />
+    <div id='new_content'><textarea name='content'></textarea></div>
+    <div id='author_label'>暱稱</div>
+    <div id='author'><input type='text' name='author' /></div>
+    <br />
+    <span id='submit' onclick="submit();">送出文章</span>
+  </form>
+{% endblock %}
